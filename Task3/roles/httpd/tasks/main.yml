@@ -1,0 +1,31 @@
+---
+
+- name: install httpd on Linux servers
+  yum: 
+    name: httpd
+    state: present
+
+- name: asserting the file path
+  file:
+    path: /var/www/html/index.html
+    state: touch
+
+- name: copying the index.html to html path
+  copy:
+    src: index.html
+    dest: /var/www/html/
+    owner: apache
+    group: apache
+    mode: '0755'
+    backup: yes
+
+- name: Enable service httpd and ensure it is not masked
+  systemd:
+    name: httpd
+    enabled: yes
+    masked: no
+
+- name: Make sure a service is running
+  systemd:
+    state: started
+    name: httpd

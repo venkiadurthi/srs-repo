@@ -1,0 +1,7 @@
+---
+- name: create webserver
+  hosts: httpd-servers
+  become: true
+  become_method: sudo
+  roles:
+    - httpd

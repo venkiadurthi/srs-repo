@@ -1,0 +1,9 @@
+[all]
+Webserver1 ansible_ssh_host=<ip1> ansible_ssh_user=<user> ansible_password=<password>
+Webserver2 ansible_ssh_host=<ip2> ansible_ssh_user=<user> ansible_password=<password>
+Webserver3 ansible_ssh_host=<ip3> ansible_ssh_user=<user> ansible_password=<password>
+
+[httpd-servers]
+Webserver1
+Webserver2
+Webserver3
